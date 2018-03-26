@@ -1,0 +1,114 @@
+html, body {height: 100%;width:100%; margin: 0px;padding: 0px;font-size:16px;}
+div,span{font-size:16px;}
+th{padding:0px;}
+td{padding:0px;}
+
+#top_background_line1{ background:#2da7e0;height:10px;width:100%} 
+#top_background_line2{ background:#0b48ab;height:10px;width:100%} 
+
+#top_head{height:40px;}
+#top_head  img{height:40px; }
+#top_head div{display:inline-block;  vertical-align: middle;padding:0px 0px}
+.top_head_left_img{background:#707f83;}
+#top_head .top_head_left{background:#707f83;height:40px;line-height:40px;padding:0px 12px;color:white;margin:-1px}
+
+#top_head_right {float:right;} 
+#top_head_right div{margin:0 5px}
+#top_head_right img{vertical-align: middle;}
+
+
+/*  地圖 */
+#main{position:relative;height:0px;width:100%;}
+.google_map{width:100%;}
+#map-canvas{height: 300px;}
+/*  地圖重疊定義 , 在 main 裡面*/
+#map_right1{ position:absolute;right:155px;top:5px;z-index:100;width:45px;height:35px} 
+#map_right2{ position:absolute;right:110px;top:5px;z-index:100;width:45px;height:35px} 
+/* 表格那塊 */
+#show_train_info{position:relative;width: 100%; height: 40px;color:#000}
+#show_train_info_1{position:absolute;left:0px;top:0px;width: 100%; height: 20px ;z-index:300;background:white}
+#show_train_info_2{position:absolute;left:0px;top:0px;width: 100%; height: 186px;z-index:200;background:white;}
+#show_train_info_3{position:absolute;left:0px;top:0px;width: 100%; height: 186px;z-index:100;background:white}
+.datagrid-header-row td{background:#707f83; }        /* easy ui th */
+
+/*  換圖表的選單列 */
+#chart_other_control{width:100%;text-align:right;}
+#chart_other_control div{height:35px;float:left;margin:0px} 
+/*
+span#change_to_distance,span#show_jqgrid_total {background-image: url('../pic/train_detail/button_100x35_u.png');}  
+*/
+#chart_select_show {height:35px;padding:0px 0px 0px 10px; background-color:#707f83;color:white; line-height:40px;} }
+#chart_select_show img{height:35px; padding:0px}
+
+#chart_select{position:absolute;top:0px;z-index:0;width:100%;margin:0px 0px 0px 0px; padding:8px;  line-height:20px ;background:#f2f2f2; border-width:1px;border-style:solid; border-color:#67b6dd;}     
+#chart_select a{padding:6px;width:100%; display:block;}
+#chart_select a:hover{padding:6px;background-color:#b4b4b5;width:100%; display:block;}
+.highcharts-legend-item text{background-color:#99CCFF;}
+
+
+
+
+#wrap { display:table; }
+#cell { display:table-cell; vertical-align:middle; }
+
+#cycle_right_td_top{height:20%;background-color:#707f83}
+#cycle_right_td_down{position:relative;height:80%;background-color:#dbdbdc;}
+#cycle_right_td_down_pic_1{position:absolute;left:0px;top:0px;width:50px;height:50px; z-index:200;} 
+#cycle_right_td_down_pic_2{position:absolute;left:70px;top:20px;color:red;z-index:200;}
+#cycle_right_td_down_pic_3{position:absolute;left:20px;top:70px;z-index:200;}
+/* 曲線圖 */
+#container_1{height: 300px; min-width: 320px;margin: 0 auto;clear:left }
+/* 左下圖表 */
+#left_container_chart{position:relative;width: 400px; height: 300px;padding:0px}
+#container_pie_speed{position:absolute;left:0px;top:0px; width: 400px; height: 300px;z-index:200;background:white;}
+#container_pie_heart{position:absolute;left:0px;top:0px; width: 400px; height: 300px;z-index:190;background:white;}
+#container_pie_slope{position:absolute;left:0px;top:0px; width: 400px; height: 300px;z-index:180;background:white;}
+
+
+#container_gauge_speed{position:absolute;left:-10px;top:0px;    width:230px; height:170px; z-index:100;}
+#container_gauge_heart{position:absolute;left:170px;top:0px;    width:230px; height:170px; z-index:100;}
+#container_gauge_power{position:absolute;left:-10px;top:150px;  width:230px; height:170px; z-index:100;}
+#container_gauge_cadence{position:absolute;left:170px;top:150px;width:230px; height:170px; z-index:100;}
+
+
+
+
+/* 表格的 css */
+#fm{
+    margin:0;
+    padding:10px 30px;
+   }
+.ftitle{
+    font-size:14px;
+    font-weight:bold;
+    padding:5px 0;
+    margin-bottom:10px;
+    border-bottom:1px solid #ccc;
+    }
+.fitem{
+      margin-bottom:5px;
+    }
+.fitem label{
+     display:inline-block;
+     width:80px;
+    }
+
+.datagrid-header-row{color:white;}
+
+#share_web_link{
+  display:none;
+  padding:10px;
+  margin-top:10px;
+  height:90px;
+  width:800px;
+  background:#B1B1B1;
+}
+
+
+#description{background:#afc6cc;color:#333333;line-height:40px;}
+
+label {
+ display: inline-block;
+ width: 10em;
+}
+#show_train_info_2,#show_train_info_3,#chart_select,#map_right2{display:none;}

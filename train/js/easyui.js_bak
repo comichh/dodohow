@@ -1,0 +1,140 @@
+// 每一點位置表格
+var now_page_num=1;
+var now_page_size=5;
+
+$(document).ready(function(){
+//  $('#dg').datagrid({loadFilter:pagerFilter}).datagrid('loadData', getData1());
+ $('#dg').datagrid({
+   onClickRow: function(rowIndex,rowData){
+     var click_num=(now_page_num-1)*now_page_size+rowIndex+1;          
+     create_map_marker_easyui(click_num);            // 不知道為什麼抓不到原來函數，只好在定義一個
+   }
+  });
+});
+
+function create_map_marker_easyui(key_temp)
+{       
+          add_highchart_line(key_temp);  
+          key=key_temp-1;                              // 播放用的 key 
+          beach = beaches_obj[key_temp];              
+          var myLatLng = new google.maps.LatLng(beach.latitude, beach.longitude);
+          var marker = new google.maps.Marker({
+             position: myLatLng,   
+          });    
+            for(i in markers_1){                       // 這樣也可以避掉第一次，沒有值的問題
+              markers_1[i].setMap(null);                           
+          }    
+          markers_1=[];                                // 然後再把陣列歸 0
+          markers_1.push(marker);
+          marker.setMap(map);
+          for(i in markers){
+             markers[i].setMap(null);                   // 這個是清除自動播放時的上一點
+          }
+}
+
+
+$('#dg').datagrid({          // 初始狀態
+  pageNumber:now_page_num,
+  pageSize:now_page_size,
+  pageList:[5,10,15,20,25,30,200],  
+});
+
+
+// 寫在 train_detail.js 那邊，
+function getData1(){
+  return beaches;
+}
+// 排序要用
+/*
+function mysort(a,b){
+				 return (a > b ? 1 : -1);
+}
+*/
+function pagerFilter(data){
+if (typeof data.length == 'number' && typeof data.splice == 'function'){    // is array
+ data = {
+   total: data.length,
+   rows: data,
+ }
+}
+var dg = $(this);
+var opts = dg.datagrid('options');
+var pager = dg.datagrid('getPager');
+pager.pagination({
+ layout:['list','first','prev','links','next','last'],
+  onSelectPage:function(pageNum, pageSize){
+    // 重新調整高度
+    var need_height=pageSize*25+60;
+    $('#show_train_info').css({'height':need_height});
+    $('#show_train_info_2').css({'height':need_height});
+    $('#dg').datagrid('resize',{
+      height: need_height
+    });
+    now_page_num= pageNum;
+    now_page_size=pageSize;
+    opts.pageNumber = now_page_num;
+    opts.pageSize = now_page_size;
+    pager.pagination('refresh',{
+    pageNumber:pageNum,
+    pageSize:pageSize,
+   });
+   dg.datagrid('loadData',beaches);
+  //dg.datagrid('loadData',rows);
+}
+});
+if (!data.originalRows){
+  data.originalRows = (data.rows);
+}
+// 排序用，localdata 
+if (!opts.remoteSort && opts.sortName){
+		var target = this;
+		var names = opts.sortName.split(',');
+		var orders = opts.sortOrder.split(',');   
+		data.originalRows.sort(function(r1,r2){
+			var r = 0;
+			for(var i=0; i<names.length; i++){
+				var sn = names[i];
+				var so = orders[i];
+				var col = $(target).datagrid('getColumnOption', sn);
+      /*
+       var sortFunc = function(a,b){  
+				a = a.split('/');  
+				b = b.split('/');      
+				if (a[2] == b[2]){  
+					if (a[0] == b[0]){  
+						return (a[1]>b[1]?1:-1);  
+					} else {             
+						return (a[0]>b[0]?1:-1);  
+					}  
+				} else {  
+					return (a[2]>b[2]?1:-1);  
+				}  
+			};     
+      */             
+				var sortFunc =function(a,b){              // 轉成浮點數後在比對，預設是 ASCII 比對    
+					return a==b ? 0 : (parseFloat(a)>parseFloat(b)?1:-1);	       
+				};       
+				r = sortFunc(r1[sn], r2[sn]) * (so=='asc'?1:-1);    
+        //if ( r1[sn] ==99 && r2[sn] ==100){
+          //console.log (r2[sn] +":"+sortFunc(r1[sn], r2[sn])+":");
+          //console.log(r1['start_time']);
+        //}         
+				if (r != 0){
+					return r;
+				}      
+			}      
+			return r;
+   
+		});
+
+	}
+
+
+  var start = (opts.pageNumber-1)*parseInt(opts.pageSize);
+  var end = start + parseInt(opts.pageSize);
+  data.rows = (data.originalRows.slice(start, end));
+  return data;
+}
+
+
+

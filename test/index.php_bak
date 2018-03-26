@@ -1,0 +1,93 @@
+<?php
+// ios 接收用
+/*
+先設置php.ini中的always_populate_raw_post_data值設為On,這樣表示可以接受data數據 。或者都用 php://input 收
+*/
+include ("../config/mysql.php");
+include ("../config/web.ini");
+
+/*
+if (!empty($GLOBALS['HTTP_RAW_POST_DATA']))
+{
+  $command=isset($GLOBALS['HTTP_RAW_POST_DATA'])?$GLOBALS['HTTP_RAW_POST_DATA']:file_get_contents("php://input");
+  $get_data = json_decode($command,TRUE);     //true, json  轉化成 array ，而非物件  
+}
+//echo "收到後，把收到的值，再轉成 json 回傳 <br>";     
+echo json_encode($get_data);
+*/
+
+
+
+// test
+$get_data['email']="my mail";
+$get_data['pm_passwd']='12345678';
+$get_data['deviceid']="test2";
+
+
+// 轉成我需要的資料
+$email=$get_data['email'];
+$pm_password=$get_data['pm_passwd'];
+$deviceid=$get_data['deviceid'];
+
+$password=md5($pm_password);
+$db_name=str_replace('-','_',$deviceid);
+$model=6;         // ios =6
+
+
+function 
+
+// 程式開始
+$final_return=0;
+// 只是處理第一次帳號，密碼問題
+$query="select * from tbl_user where email='$email'";
+$result=mysql_query($query);
+if (mysql_num_rows($result) ==0)  // 沒有這個使用著才新增
+{ 
+  $query_add="insert into tbl_user set email='$email',password='$password',pm_password='$pm_password'"; 
+  $result_add=mysql_query($query_add) ;
+  if ($result_add)
+  {
+    $creator=mysql_insert_id(); 
+    // 新增 device 
+    $query_add1="insert into tbl_device set deviceid='$deviceid',db_name='$db_name',creator='$creator',model='$model'";
+    $result_add1=mysql_query($query_add1);
+    if  ($result_add1)
+    { 
+      // 動態創建資料表   
+      exec ("bash ../sh/create.sh $db_name 2>&1 1> /dev/null ",$bash_return,$status);
+      if (!$status ==0){$final_return=$bash_return[0];}
+    }else { $final_return="資料庫建立 device 錯誤";}
+  }else{$final_return="資料庫建立使用者錯誤";}     
+}else{  //  已經有 user, 但是換手機的時候，帳號 和 device 會對不起來
+ while ($row=mysql_fetch_array($result))
+ { 
+    $creator=$row['id']; 
+ }
+ $query="select * from tbl_device where deviceid='$deviceid' and creator='$creator'";
+ $result=mysql_query($query);
+ if ($result)
+ {
+   if (mysql_num_rows($result) ==0)   // 換手機的時候。
+   {
+     // 直接把他當作一台新機器好了。
+     $query_add_new="insert into tbl_device set deviceid='$deviceid',db_name='$db_name',creator='$creator',model='$model'";    
+     $result_add_new=mysql_query($query_add_new);
+     if ( $result_add_new)
+     {   
+      // 一樣動態創建資料表   
+      exec ("bash ../sh/create.sh $db_name 2>&1 1> /dev/null ",$bash_return,$status);
+      if (!$status ==0){$final_return=$bash_return[0];}
+     }  
+   }
+ }else{ $final_return='資料庫讀取錯誤';}   
+
+}
+
+
+echo $final_return;
+
+
+
+
+
+?>

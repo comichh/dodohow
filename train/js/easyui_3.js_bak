@@ -1,0 +1,114 @@
+$(document).ready(function(){
+    //$('#dg').datagrid({loadFilter:pagerFilter}).datagrid('loadData', getData1());
+});
+
+$('#dg_3').datagrid({
+  pageSize:5,
+  pageList:[5,10,15,20,25,30],                   
+});
+
+/*
+$('#dg_3').datagrid({
+  onLoadSuccess: function(){
+      var row=$('#dg_3').datagrid('getPager');      // 這個是抓到選取列       
+  }
+});
+*/
+/*
+$('#dg').pagination({
+     pageSize:12,
+  pageList:[5,10,15,20,25,30],  
+});
+*/
+/*
+function getData(){
+// 這個好像就是第一次數據？
+  rows=[];   //  這明明就是物件，為何還要轉一次
+  for(var i=1; i<=800; i++){
+var amount = Math.floor(Math.random()*1000);
+var price = Math.floor(Math.random()*1000);
+rows.push({
+inv: 'Inv No '+i,
+date: $.fn.datebox.defaults.formatter(new Date()),
+name: 'Name '+i,
+amount: amount,
+price: price,
+cost: amount*price,
+note: 'Note '+i
+});
+}
+return rows;
+}
+*/
+//  忘記這個函數名稱怎麼來的？
+function getData3(){
+  return beaches_lap;
+}
+/*
+function mysort(a,b){
+				 return (a > b ? 1 : -1);
+}
+*/
+function pagerFilter_3(data){
+if (typeof data.length == 'number' && typeof data.splice == 'function'){    // is array
+data = {
+  total: data.length,
+  rows: data
+}
+}
+var dg_3 = $(this);
+var opts = dg_3.datagrid('options');
+var pager = dg_3.datagrid('getPager');
+
+pager.pagination({
+layout:['list','first','prev','links','next','last'],
+onSelectPage:function(pageNum, pageSize){
+  // 重新調整高度
+  var need_height=pageSize*25+60;
+  $('#show_train_info').css({'height':need_height});
+  $('#show_train_info_3').css({'height':need_height});
+  $('#dg_3').datagrid('resize',{
+    height: need_height
+  });
+  
+  opts.pageNumber = pageNum;
+  opts.pageSize = pageSize;
+  pager.pagination('refresh',{
+    pageNumber:pageNum,
+    pageSize:pageSize
+  });
+dg_3.datagrid('loadData',beaches_lap);
+//dg.datagrid('loadData',rows);
+}
+});
+if (!data.originalRows){
+data.originalRows = (data.rows);
+}
+
+if (!opts.remoteSort && opts.sortName){
+		var target = this;
+		var names = opts.sortName.split(',');
+		var orders = opts.sortOrder.split(',');
+		data.originalRows.sort(function(r1,r2){
+			var r = 0;
+			for(var i=0; i<names.length; i++){
+				var sn = names[i];
+				var so = orders[i];
+				var col = $(target).datagrid('getColumnOption', sn);
+				var sortFunc = col.sorter || function(a,b){
+					return a==b ? 0 : (a>b?1:-1);
+				};
+				r = sortFunc(r1[sn], r2[sn]) * (so=='asc'?1:-1);
+				if (r != 0){
+					return r;
+				}
+			}
+			return r;
+		});
+	}
+  var start = (opts.pageNumber-1)*parseInt(opts.pageSize);
+  var end = start + parseInt(opts.pageSize);
+  data.rows = (data.originalRows.slice(start, end));
+  return data;
+}
+

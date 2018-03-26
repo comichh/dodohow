@@ -1,0 +1,7 @@
+/**
+ * styles for sporthistory 
+ */
+.popover {
+	min-width: 400px;
+}
+.modal-backdrop {background: none;}	

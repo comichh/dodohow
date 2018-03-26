@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Garmin Connect"
+  xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd"
+  xmlns="http://www.topografix.com/GPX/1/1"
+  xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1"
+  xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <metadata>
+    <link href="connect.garmin.com">
+      <text>Garmin Connect</text>
+    </link>
+    <time>2014-08-06T12:36:23.000Z</time>
+  </metadata>
+  <trk>
+    <name>草皮 慢跑</name>
+    <desc>草皮上好難跑，而且又沒有戴眼鏡看不清楚路況坑坑巴巴的</desc>
+    <trkseg>
+      <trkpt lon="121.48986054584384" lat="25.06253119558096">
+        <ele>11.199999809265137</ele>
+        <time>2014-08-06T12:36:23.000Z</time>
+      </trkpt>
+      <trkpt lon="121.48988451808691" lat="25.06252633407712">
+        <ele>11.199999809265137</ele>
+        <time>2014-08-06T12:36:24.000Z</time>
+      </trkpt>
+      <trkpt lon="121.49005819112062" lat="25.06253270432353">
+        <ele>12.0</ele>
+        <time>2014-08-06T12:36:31.000Z</time>
+      </trkpt>
+      <trkpt lon="121.49018140509725" lat="25.06251267157495">
+        <ele>12.600000381469727</ele>
+        <time>2014-08-06T12:36:36.000Z</time>
+      </trkpt>
+      <trkpt lon="121.49040427990258" lat="25.06249221973121">
+        <ele>13.399999618530273</ele>
+        <time>2014-08-06T12:36:45.000Z</time>
+      </trkpt>
+      <trkpt lon="121.49043428711593" lat="25.06249263882637">
+        <ele>13.399999618530273</ele>
+        <time>2014-08-06T12:36:46.000Z</time>
+      </trkpt>
+      <trkpt lon="121.49064819328487" lat="25.062468498945236">
+        <ele>13.800000190734863</ele>
+        <time>2014-08-06T12:36:55.000Z</time>
+      </trkpt>
+      <trkpt lon="121.49075154215097" lat="25.0623045489192">
+        <ele>13.0</ele>
+        <time>2014-08-06T12:37:03.000Z</time>
+      </trkpt>
+      <trkpt lon="121.49075799621642" lat="25.062120566144586">
+        <ele>12.399999618530273</ele>
+        <time>2014-08-06T12:37:11.000Z</time>
+      </trkpt>
+      <trkpt lon="121.49072840809822" lat="25.06193222478032">
+        <ele>11.399999618530273</ele>
+        <time>2014-08-06T12:37:19.000Z</time>
+      </trkpt>
+      <trkpt lon="121.49065062403679" lat="25.0618676841259">
+        <ele>11.399999618530273</ele>
+        <time>2014-08-06T12:37:23.000Z</time>
+      </trkpt>
+      <trkpt lon="121.49043093435466" lat="25.061849914491177">
+        <ele>11.800000190734863</ele>
+        <time>2014-08-06T12:37:32.000Z</time>
+      </trkpt>
+      <trkpt lon="121.49036320857704" lat="25.061834827065468">
+        <ele>11.600000381469727</ele>
+        <time>2014-08-06T12:37:35.000Z</time>
+      </trkpt>
+      <trkpt lon="121.49016137234867" lat="25.061832647770643">
+        <ele>11.199999809265137</ele>
+        <time>2014-08-06T12:37:43.000Z</time>
+      </trkpt>
+      <trkpt lon="121.48994252085686" lat="25.061835329979658">
+        <ele>10.600000381469727</ele>
+        <time>2014-08-06T12:37:52.000Z</time>
+      </trkpt>
+      <trkpt lon="121.48973925970495" lat="25.061904480680823">
+        <ele>10.199999809265137</ele>
+        <time>2014-08-06T12:38:01.000Z</time>
+      </trkpt>
+      <trkpt lon="121.4897224958986" lat="25.061924178153276">
+        <ele>10.0</ele>
+        <time>2014-08-06T12:38:02.000Z</time>
+      </trkpt>
+      <trkpt lon="121.48966583423316" lat="25.06211394444108">
+        <ele>10.399999618530273</ele>
+        <time>2014-08-06T12:38:11.000Z</time>
+      </trkpt>
+      <trkpt lon="121.48966474458575" lat="25.06215652450919">
+        <ele>10.399999618530273</ele>
+        <time>2014-08-06T12:38:13.000Z</time>
+      </trkpt>
+      <trkpt lon="121.4896794129163" lat="25.06227571517229">
+        <ele>10.399999618530273</ele>
+        <time>2014-08-06T12:38:19.000Z</time>
+      </trkpt>
+    </trkseg>
+  </trk>
+</gpx>

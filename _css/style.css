@@ -1,0 +1,69 @@
+html,body{margin:0px;padding:0px;font-size:16px;font-family:verdana;}
+a{text-decoration:none;}
+h2{text-align:left;font-size:20px;font-weight:bold;font-family:微軟正黑體,Arial}
+img {border:none}      /* ie9 */
+
+.body_Split{background:#c9caca;padding:10px}      
+/* 第一層 */
+#body_page{text-align:center;background:url(../pic/web/specbg_1.png) repeat-x;font-family:verdana;}     
+#body_table{width:1280px;height:720px;margin:0px auto;text-align:center; background:#f7f8f8; }   /* 第二層，這邊可能有不同背景 */
+/*  為了使下一層也垂直置中 */
+/*
+#body_table::before{        
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  width: 0;
+  height: 100%;
+} 
+*/
+#body_content{                               /* 垂直置中的內容層，寬度會變 ，這個是為了以後還有小視窗  */  
+  margin:0 auto;width:1000px; text-align:left;          /* 水平置中用 */
+  display: inline-block;vertical-align: middle;        /* 垂直置中用 */
+  padding:10px 20px;
+  font-size:16px;
+}
+
+/* 自訂 button ，最外層用 class='stand_button_0'  ，第二層用 div class='top_button' ，實際按鍵用 span   */
+.stand_button_0 div.top_button{display:inline-block;margin-right:60px;margin-top:5px;color:#3e3a39}
+.stand_button_0 span{
+  font-size:16px;
+  height:30px;line-height:30px;
+  padding:0px 8px; display:inline-block;vertical-align: middle; cursor: pointer;
+  background-image: url('../pic/train_detail/button_100x35_b.png'); 
+}
+.stand_button_0 span.no_padding{padding:0px; width:40px; display:inline-block; }
+span.button_1{background-image: url('../pic/train_detail/button_100x35_u.png');color:#3e3a39}     /*  預設已經點選的那張 */
+
+/* css3 按鍵 */
+.button_css3{
+  font-size:16px;
+  width:120px;
+  height:30px;
+  line-height:30px;
+  margin: 0 auto ; 
+  background-color:#0e68ab;
+  color:#ffffff;
+  cursor: pointer;
+  display:inline-block;
+  text-align:center;
+  -moz-border-radius: 30px;    
+  -webkit-border-radius: 30px; 
+  -khtml-border-radius: 30px; 
+  border-radius: 30px;        
+}
+.button_css3 a{color:#ffffff}
+
+th{background:blue;color:white;text-align: center;padding:1px 30px 1px 30px;}
+td{text-align:center;padding:1px 30px 1px 30px; }
+
+input[type=radio] {width:20px;height:18px}
+select{height:30px;padding:2px 0;font-size:16px;color:3e3a39;font-family:微軟正黑體;background:#dcdddd;border:0px}
+input[type=text],input[type=password]
+{
+  font-size:16px;
+  background:#dcdddd;color:3e3a39;height:30px;width:100%;border:0px
+}
+
+
+      

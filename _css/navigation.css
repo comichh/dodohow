@@ -1,0 +1,157 @@
+
+
+/* CSS For Dropdown Menu Start */
+ul.menu
+{
+  list-style:none;
+  padding:0px;
+  margin:17px;
+  vertical-align:text-bottom
+}
+
+ul.menu li
+{
+  display:inline;
+  float:left;
+}
+
+ul.menu li a
+{
+  color:#E2E2E2;
+  /*background:blue;*/
+  margin-right:10px;
+  font-weight:bold;
+  font-size:16px;
+  font-family:verdana;
+  display:block; 
+  width:110px;
+  height:35px;
+  line-height:35px;
+  padding:0px;
+  text-align:center;
+  background-image: url('../pic/navigation/img_110x40_li.png'); 
+}
+
+ul.menu li a:hover
+{
+  font-weight:bold;
+  text-decoration:none;
+  display:block;
+  width:110px;
+  text-align:center;
+  -webkit-border-radius:5px;
+  -moz-border-radius:5px;
+   background-image: url('../pic/navigation/img_110x40_li_hover.png'); 
+}
+
+ul.menu li.sublinks a
+{
+  color:#1a89c8;
+  background:#ECECEC;
+  font-weight:normal;
+  text-decoration:none;
+  display:block;
+  width:110px;
+  text-align:center;
+  margin-top:0px;   /* 兩個之間的間隔 */
+}
+
+ul.menu li.sublinks a:hover
+{
+  color:white;
+  background:#1a89c8;
+  font-weight:normal;
+  text-decoration:none;
+  display:block;
+  width:110px;
+  text-align:center;
+}
+
+ul.menu li.sublinks
+{
+    display:none;
+}
+
+#container_head
+{
+  padding:10px 0 0 0;
+  height:50x;
+  width:100%;
+  background:white;  
+}
+#head_pic_1{
+  float:left;
+	width: 300px;
+	height: 50px;
+  margin:10px 20px 0 20px;
+  background-image: url('../pic/navigation/logo_1.png'); 
+  background-repeat: no-repeat;  
+}
+#show_comment1{color:red}
+#comment_list{
+  display:none;   
+  line-height:30px;
+  padding:0px;
+  margin:0px; 
+  width:210px;
+  background:#E0E0E0;
+  z-index:2000;
+}
+
+#comment_list div
+{
+  color:#E2E2E2;
+  padding:5px;
+  /*width:180px;*/    
+  vertical-align: middle;          
+  display:inline-block;
+  height:30px;  
+}
+#comment_list a{
+  width:150px;
+  height:30px;  
+  line-height:30px;
+  display:inline-block; 
+}
+
+#comment_list a:hover {
+   background:#b4b4b5;        
+} 
+
+
+
+#new_comment{
+  display:none;
+  line-height:30px;
+  padding:10px;
+  margin-top:5px;
+  height:500px;
+  width:200px;
+  overflow:auto;
+  background:#E0E0E0; 
+  background-repeat: repeat-y; 
+}
+#new_comment a{
+  width:300px;          
+  display:block;
+  color:blue;
+}
+#new_comment a:hover {
+   background:#b4b4b5;
+} 
+#navigation_tri{position:absolute;margin:10px 0 0 0; display:none;}
+
+#top_head_line{background:#2da7e0;height:10px;width:100%}
+#down_head_line{background:#0b48ab;height:10px;width:100%}
+
+a.homepage_login{ 
+  background:black;
+  color: #ffffff;
+  padding:13px;
+  margin:1px;
+}
+a.homepage_login:hover 
+{
+	color: #fff;
+	background-color: #778899;
+}

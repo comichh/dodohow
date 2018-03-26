@@ -1,0 +1,152 @@
+import java.net.*;
+import java.io.*;  
+import java.sql.*;
+    public class ServerMain {  
+        public ServerMain() {  
+              ServerSocket ss = null;
+            try {  
+                ss = new ServerSocket(54321);              
+                System.out.println("connect ok"   );                 
+                while(true){  
+                    Socket s = ss.accept();  
+                     Thread thread=new ServerThread(s);
+                     thread.start();
+                }  
+            } catch (IOException e) {  
+                System.err.println("socket errot");
+                e.printStackTrace();  
+            }  
+        }          
+        public static void main(String[] args) {  
+            new ServerMain();  
+        }  
+    }        
+    class ServerThread extends Thread { 
+        private Socket s = null;  
+        private BufferedReader read = null;  
+        private PrintStream print = null;  
+        public ServerThread(Socket s) {  
+            this.s = s;  
+            try { 
+                read = new BufferedReader(new InputStreamReader(s.getInputStream()));  
+                print = new PrintStream(s.getOutputStream());  
+            } catch (IOException e) {  
+                e.printStackTrace();  
+            }  
+        }  
+        
+        public void run() {    
+            try {  
+                String message ="";
+                String message1 ="";
+                Statement st = null;
+                ResultSet rs = null; 
+                String need_id="";
+                String train_id="";
+                String imei="";
+                String query="";
+        
+              String G_625XT_train="deviceid,Start_time,wTotalPoint,lTotalTime,lTotalDistance,wLapCnts,bMultiSport,wCalory,lMaxSpeed,cMaxHeart,cAvgHeart,wAscent,wDescent,sMinAlti,sMaxAlti,wAvgCadns,wBestCadns,wAvgPower,wMaxPower,cSport1,cSport2,cSport3,cSport4,cSport5";
+              
+              String G_625XT_lap="train_data_key,deviceid,start_time,lap_no,total_time,total_distance,calory,maxspeed,max_heart,avg_heart,min_alt,max_alt,avg_cadns,best_cadns,avg_power,max_power,Multi_Sport_Index,start_pt,end_pt";
+
+              String G_625XT_point="train_data_key,deviceid,start_time,no,latitude,longitude,altitude,speed,heart_rate,cadence,pwr_cadence,power,distance"; 
+
+
+while (!(message = read.readLine()).equals("")){
+        
+               try {
+               Class.forName("com.mysql.jdbc.Driver");
+                Connection ct = DriverManager.getConnection(
+                    "jdbc:mysql://192.168.1.191:3306/sport", "jdbc", "globajdbc1");
+                st = ct.createStatement();
+               } catch (Exception e) {
+                  System.out.println("database connect error");  
+               } 
+                    System.out.println("get:"+message); 
+                    String[]token=message.split(",");
+                    char   test=token[0].charAt(0);    
+                    message1=message.replaceAll(",","','");
+               
+                 switch(test)
+                  {
+                    case 'C':
+                     if (message.matches(".*!$")){ 
+                       query="select * from tbl_device where deviceid='"+token[1]+"'";
+                       try {
+                        rs = st.executeQuery(query);
+                        while(rs.next()){need_id=rs.getString(1);}
+                        print.print("ACKCR,0,http://192.168.1.195\r\n");  
+                        System.out.print("ACKCR,0,http://192.168.1.195\r\n");  
+                       } catch (Exception e) {                      
+                        print.print("ACKCR,1,http://192.168.1.195?access="+token[1]+"\r\n");  
+                        System.out.print("ACKCR,1,http://192.168.1.195?access="+token[1]+"\r\n");  
+                       }
+                     }                       
+                    break; 
+                    case '@':            // train data                     
+                        message1=message1.replaceAll("[@!]","");
+                        imei=token[0].replaceAll("@","");
+                 
+                        String query1="INSERT  tbl_train_data ("+G_625XT_train+") values ('" ;
+                        query1+=message1+"')";
+                      try {
+                       st.executeUpdate(query1);   
+                        query="select * from tbl_train_data where deviceid='"+imei+"' and Start_time='"+token[1]+"'";
+                        rs = st.executeQuery(query);
+                        while(rs.next()){train_id=rs.getString(1);}                            
+                        System.out.print("ACK"+token[0]+"\r\n");  
+                        print.print("ACK"+token[0]+"\r\n"); 
+                      } catch (Exception e) {
+                        System.out.print("train data save error \r\n");
+                      }
+                     
+                    break;
+                    case '#':         // lap data
+                        message1=message1.replaceAll("[#!]","");
+                        String query2="INSERT  tbl_lap_data ("+G_625XT_lap+") values ('" ;
+                        query2+=train_id+"','"+message1+"')";
+                        try{
+                          st.executeUpdate(query2);
+                        } catch (Exception e) {
+                          System.out.print("lap data save error \r\n");
+                        }
+                     if (message.matches(".*!$")){ 
+                        System.out.print("ACK"+token[0]+","+token[2]+"\r\n");  
+                        print.print("ACK"+token[0]+","+token[2]+"\r\n");  
+                     }                                                  
+                    break;                                        
+                    case '$':        // point data
+                        message1=message1.replaceAll("[$!]","");
+                        String imei1=imei.replaceAll("-","_");
+                        String query3="INSERT "+imei1+" ("+G_625XT_point+") values ('" ;
+                        query3+=train_id+"','"+message1+"')";
+                        try{
+                          st.executeUpdate(query3);
+                        } catch (Exception e) {
+                          System.out.print("point data save error \r\n");
+                        }
+                        if (message.matches(".*!$")){ 
+                          System.out.print("ACK"+token[0]+","+token[2]+"\r\n");  
+                          print.print("ACK"+token[0]+","+token[2]+"\r\n"); 
+                        } 
+                      break;                                        
+                    default:
+                  } 
+                                 
+                System.out.flush();
+          //end   
+            }     
+                
+            } catch (IOException e) {  
+            } finally {  
+                try {  
+                    if(!s.isClosed()){  
+                        s.close();  
+                    }  
+                } catch (IOException e1) {  
+                    e1.printStackTrace();  
+                }  
+            }  
+        }  
+    }  

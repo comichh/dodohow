@@ -1,0 +1,48 @@
+<html>
+<head></head>
+
+<style type="text/css">
+ .slideshow { width: 10% }
+.slideshow img { width: 100%; height: auto }
+
+
+</style>
+<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="jquery.cycle2.all.js"></script>
+<script type="text/javascript" src="jquery.cycle2.Carousel.js"></script>
+<script type="text/javascript" src="jquery.cycle2.shuffle.js "></script>
+
+
+ 
+
+<script type="text/javascript">
+//$.fn.cycle.defaults.autoSelector = '.slideshow';
+$('.slideshow').cycle({
+// pause-on-hover:true
+   });
+</script>
+
+<body>
+<div class="slideshow" 
+   data-cycle-fx=carousel
+   data-cycle-timeout=1000
+   data-cycle-carousel-visible=2
+  data-cycle-next="#next3"
+    data-cycle-prev="#prev3"
+    data-cycle-pager="#pager3"
+ data-cycle-carousel-vertical=true
+   data-cycle-pause-on-hover=true
+>
+    <img src="01.jpg">
+    <img src="02.jpg">
+    <img src="03.jpg">
+</div>
+
+<div class=center>
+    <a href=# id=prev3> Prev </a>
+    <a href=# id=next3> Next  </a>
+</div>
+<div class="cycle-pager" id=pager3></div>
+
+</body>
+</html>

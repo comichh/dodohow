@@ -1,0 +1,12 @@
+1. 
+facebook  資料要修，目前那個網址沒有抽離，uuid 的權限沒有修改
+facebook 會員資料庫不能一起搬，不同網站，fb 會給不同的 id
+
+
+2.jdbc 相關資料不能搬
+  socket 資料夾裡面
+
+3. 要安裝 imagemagic 
+
+
+

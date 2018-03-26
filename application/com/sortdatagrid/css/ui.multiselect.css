@@ -1,0 +1,63 @@
+.ui-multiselect {
+	border: 1px solid currentColor; font-size: 0.8em;
+}
+.ui-multiselect ul {
+	-moz-user-select: none;
+}
+.ui-multiselect li {
+	list-style: none; margin: 0px; padding: 0px; height: 20px; line-height: 20px; font-size: 11px; cursor: default;
+}
+.ui-multiselect li a {
+	padding: 0px; color: rgb(153, 153, 153); text-decoration: none; float: left; display: block; cursor: pointer;
+}
+.ui-multiselect li.ui-draggable-dragging {
+	padding-left: 10px;
+}
+.ui-multiselect div.selected {
+	margin: 0px; padding: 0px; border: 0px currentColor; float: left; position: relative;
+}
+.ui-multiselect ul.selected {
+	background: rgb(255, 255, 255); list-style: none; margin: 0px; padding: 0px; border: 0px currentColor; width: 100%; overflow: auto; position: relative; -ms-overflow-x: hidden;
+}
+.ui-multiselect ul.selected li {
+	
+}
+.ui-multiselect div.available {
+	border-width: 0px 0px 0px 1px; border-style: none none none solid; border-color: currentColor; margin: 0px; padding: 0px; float: left; position: relative;
+}
+.ui-multiselect ul.available {
+	background: rgb(255, 255, 255); list-style: none; margin: 0px; padding: 0px; border: 0px currentColor; width: 100%; overflow: auto; position: relative; -ms-overflow-x: hidden;
+}
+.ui-multiselect ul.available li {
+	padding-left: 10px;
+}
+.ui-multiselect .ui-state-default {
+	border: currentColor; padding-left: 20px; margin-bottom: 1px; position: relative;
+}
+.ui-multiselect .ui-state-hover {
+	border: currentColor;
+}
+.ui-multiselect .ui-widget-header {
+	border: currentColor; font-size: 11px; margin-bottom: 1px;
+}
+.ui-multiselect .add-all {
+	padding: 7px; float: right;
+}
+.ui-multiselect .remove-all {
+	padding: 7px; float: right;
+}
+.ui-multiselect .search {
+	padding: 4px; float: left;
+}
+.ui-multiselect .count {
+	padding: 7px; float: left;
+}
+.ui-multiselect li span.ui-icon-arrowthick-2-n-s {
+	left: 2px; position: absolute;
+}
+.ui-multiselect li a.action {
+	top: 2px; right: 2px; position: absolute;
+}
+.ui-multiselect input.search {
+	margin: 4px; padding: 1px; width: 100px; height: 14px; opacity: 0.5;
+}

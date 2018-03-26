@@ -1,0 +1,107 @@
+th{padding:0px;}
+td{ padding:0px; text-align:left; }
+div {text-align:left;}
+#body_table{height:100%;margin:0 auto;};
+ 
+#top_content{margin:0 auto;width:1280px;background-color:#2da7e0}
+#top_content_1{margin:0 auto;background-color: :#2da7e0 ;width:1100px;}
+.te{display:inline-block;vertical-align: middle;}
+.triangle{vertical-align:top;padding:0 15px 0 0}
+
+
+
+#top_pic_div{
+background:#6F7E82;color:white;font-size:20px;
+height:40px;line-height:40px;padding:10px 0 10px 20px;margin:0 auto
+
+}
+#top_pic_div img{height:40px}
+#top_pic_div span{vertical-align:middle;display:inline-block; }
+
+#top_pic_l{background-image:url('../pic/comment/top_l.jpg');height:70px;width:150px;margin-right:-5px;}
+#top_pic_m{background-image:url('../pic/comment/top_m.jpg');height:70px;width:980px;line-height:70px;  margin-right:-5px;}
+#top_pic_r{background-image:url('../pic/comment/top_r.jpg');height:70px;width:150px;margin-right:0px;}
+ 
+/* .top_pic{height:60px;}*/
+/*
+#top_pic_l{float:left;}
+#top_m{position:relative;float:left}
+#top_content_m{position:absolute;left:30px;top:30px;height:20px}
+*/
+/*#dd{background-image:url('../pic/comment/top_m.jpg');width:100px; }*/
+.name{color: red;}
+#range_comment{                 /* 對整個區塊控制 */
+  display:black;
+  width:1020px;
+  background-color: #E0E0E0;  
+  padding: 0px 0px 5px 0px;
+  /*margin:0px 0 0 -5px;*/       
+  -moz-border-radius: 30px 30px 30px 30px;   /* Firefox */ 
+  -webkit-border-radius: 30px 30px 30px 30px;  /* Safari, Chrome */ 
+  -khtml-border-radius: 30px 30px 30px 30px;  /* Konqueror */ 
+  border-radius:30px 30px 30px 30px;         /* Opera 10.50 and later (CSS3 standard) */ 
+   /* behavior: url(../_css/border-radius.htc);     IE6, IE7, IE8 */
+}   
+
+/* 第一層 */
+.form-signin {
+        /* width:720px; */
+        /* display:black; */
+        word-break:break-all;
+        white-space:normal; 
+        padding: 10px 30px 5px;
+        margin: 0 auto 20px; 
+        background-color: #E0E0E0;       
+  -moz-border-radius: 30px;    /* Firefox */ 
+  -webkit-border-radius: 30px; /* Safari, Chrome */ 
+  -khtml-border-radius: 30px;  /* Konqueror */ 
+  border-radius: 30px;         /* Opera 10.50 and later (CSS3 standard) */ 
+ /*  behavior: url(../_css/border-radius.htc);    IE6, IE7, IE8 */ 
+    }
+
+
+/* 第二層 */
+.form-signin_1 {
+        max-width: 100%;
+        word-break:break-all;
+        white-space:normal;
+        padding: 10px 30px 15px 10px;
+        margin: 0px 0px 20px 100px;
+        background-color: white; 
+        border-top: 1px solid black;
+        display:none;
+        /*
+        -webkit-border-radius: 30px;
+           -moz-border-radius: 30px;
+                border-radius: 30px;
+        */
+}
+
+.form-signin_2 {
+       max-width: 100%;
+        word-break:break-all;
+        white-space:normal;
+       padding: 10px 30px 15px 10px;
+       margin: 0px 0px 20px 200px;
+       background-color: white; 
+       border-top: 1px dashed black;
+       display:none;
+/*
+        -webkit-border-radius: 5px;
+           -moz-border-radius: 5px;
+                border-radius: 5px;
+        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+                box-shadow: 0 1px 2px rgba(0,0,0,.05);
+*/
+}
+.input-block-level{width:95%;}
+.input-block-level_1{width:100%;margin:10px 0px}
+.first_me_pic{width:50px}                   /* 第一層頭像 */
+.second_me_pic{float:left;width:50px}       /* 第2,3層頭像 */
+button{height:25px}
+.right_button{float:right;}
+.comment_button{background-color:#2da7e0;width:100px;height:25px;line-height:25px}
+.second_me_pic{padding:0 20px 0 0} 
+#all_content{margin:0 auto} 
+

@@ -1,0 +1,80 @@
+<html>
+<head></head>
+
+<style type="text/css">
+    .nav { margin: 5px 0 }
+    #nav a, #s7 strong { margin: 0 5px; padding: 3px 5px; border: 1px solid #ccc; background: #fc0; text-decoration: none }
+    #nav a.activeSlide { background: #ea0 }
+    #nav a:focus { outline: none; }
+</style>
+<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="jquery.cycle.all.js"></script>
+
+
+
+<script type="text/javascript">
+
+
+    $(function() {
+
+        $('#div1').before('<div id="nav" class="nav">').cycle({
+            fx: 'curtainX',
+            timeout: 1,
+            pause:1,
+            pager: '#nav'
+        });
+    $('#div2').before('<div id="nav" class="nav">').cycle({
+            fx: 'turnDown',
+            timeout: 1,
+            pause:1,
+            //pager: '#nav'
+        });
+     $('#div3').before('<div id="nav" class="nav">').cycle({
+            fx: 'zoom',
+            timeout: 1,
+            pause:1,
+            //pager: '#nav'
+        });
+   $('#div4').before('<div id="nav" class="nav">').cycle({
+            fx: 'scrollRight',
+            timeout: 1,
+            pause:1,
+            //pager: '#nav'
+        });
+
+
+
+
+    });
+</script>
+
+<body>
+
+
+
+    <div id="div1">
+        <img src="01.jpg" width="200" height="200"  />
+        <img src="02.jpg" width="200" height="200"  />
+        <img src="03.jpg" width="200" height="200"  />
+        <div><br><br>文字也可以</div>
+    </div>
+  <div id="div2">
+        <img src="02.jpg" width="200" height="200"  />
+        <img src="03.jpg" width="200" height="200"  />
+        <img src="01.jpg" width="200" height="200"  />
+    </div>
+  <div id="div3">
+        <img src="02.jpg" width="200" height="200"  />
+        <img src="03.jpg" width="200" height="200"  />
+        <img src="01.jpg" width="200" height="200"  />
+    </div>
+  <div id="div4">
+        <img src="02.jpg" width="200" height="200"  />
+        <img src="03.jpg" width="200" height="200"  />
+        <img src="01.jpg" width="200" height="200"  />
+    </div>
+
+
+
+</body>
+</html>
